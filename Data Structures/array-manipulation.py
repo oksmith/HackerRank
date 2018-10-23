@@ -9,16 +9,16 @@ import sys
 # Complete the arrayManipulation function below.
 def arrayManipulation(n, queries):
     array = [0 for i in range(n)]
-    array_list = [array]
+    MAX = 0
     
     for query in queries:
-        st = int(query[0])
-        end = int(query[1])
-        for i in range(st-1,end):
+        for i in range(int(query[0])-1,int(query[1])):
             array[i] = array[i] + query[2]
-        array_list.append(array)
+        max_ = max(array)
+        if max_>MAX:
+            MAX = max_ 
     
-    return(max([num for array in array_list for num in array]))
+    return(MAX)
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
@@ -31,7 +31,7 @@ if __name__ == '__main__':
 
     queries = []
 
-    for _ in range(m):
+    for i in range(m):
         queries.append(list(map(int, input().rstrip().split())))
 
     result = arrayManipulation(n, queries)
