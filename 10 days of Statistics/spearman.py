@@ -31,7 +31,7 @@ def pearsonCorrCoef(X,Y):
     sigma_Y = (sum([(y-mu_Y)**2 for y in Y])/len(Y))**0.5
     xy = [(x - mu_X)*(y - mu_Y) for x,y in zip(X,Y)]
     sumxy = sum(xy)
-    rho = sumxy/(N*sigma_X*sigma_Y)
+    rho = sumxy/(len(X)*sigma_X*sigma_Y)
     return(rho)
 
 rankX = rankdata(X)
