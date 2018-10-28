@@ -2,15 +2,14 @@ N = int(input())
 X = list(map(float,input().split()))
 Y = list(map(float,input().split()))
 
-mu_X = 6.73
-sigma_X = 2.39251
-mu_Y = 37.8
-sigma_Y = 55.1993
-
-def pearsonCorrCoef(X,Y,mu_X,mu_Y):
+def pearsonCorrCoef(X,Y):
+    mu_X = sum(X)/len(X)
+    mu_Y = sum(Y)/len(Y)
+    sigma_X = (sum([(x-mu_X)**2 for x in X])/len(X))**0.5
+    sigma_Y = (sum([(y-mu_Y)**2 for y in Y])/len(Y))**0.5
     xy = [(x - mu_X)*(y - mu_Y) for x,y in zip(X,Y)]
     sumxy = sum(xy)
     rho = sumxy/(N*sigma_X*sigma_Y)
     return(rho)
 
-print("{:.03f}".format(pearsonCorrCoef(X,Y,mu_X,mu_Y)))
+print("{:.03f}".format(pearsonCorrCoef(X,Y)))
