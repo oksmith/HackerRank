@@ -5,6 +5,7 @@ def merge_the_tools(string, k):
         output_string = "".join(list(dict.fromkeys(list_of_chars)))
         print(output_string)
 
+
 if __name__ == '__main__':
     string, k = input(), int(input())
     merge_the_tools(string, k)
